@@ -50,29 +50,41 @@
   .soar{animation:soar 22s ease-in-out infinite}
 
   /* ── картка теми ── */
-  #card{{ position:fixed; z-index:6; right:16px; top:50%; transform:translateY(-50%); width:min(420px, calc(100vw - 32px)); max-height:calc(100vh - 32px); overflow:auto;
-    background:#FFFFFF; border-radius:26px; box-shadow:0 14px 40px rgba(70,60,110,.28); border:4px solid var(--fl); }}
-  #card.show{{ animation: cardIn .35s cubic-bezier(.2,1.3,.4,1); }}
-  @keyframes cardIn{{ from{{ opacity:0; transform:translateY(-50%) scale(.9) }} to{{ opacity:1; transform:translateY(-50%) scale(1) }} }}
-  #cardClose{{ position:sticky; top:8px; float:right; margin:8px 8px 0 0; width:44px; height:44px; border-radius:50%; background:var(--hl); color:var(--dk); font-size:30px; line-height:44px; }}
-  #cardBody{{ padding:18px 22px 22px; }}
-  #cardBody h2{{ font-family:'Pacifico', cursive; font-weight:400; font-size:32px; line-height:46px; color:var(--dk); margin-bottom:6px; }}
-  #cardBody h3{{ font-family:'Rubik', sans-serif; font-weight:700; font-size:20px; line-height:26px; letter-spacing:.02em; color:var(--dk); margin-top:12px; }}
-  #cardBody .fl{{ list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:6px; }}
-  #cardBody .fl li{{ display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; background:var(--hl); border-radius:14px; padding:8px 14px; }}
-  #cardBody .fx{{ font-family:Georgia, 'Times New Roman', serif; font-style:italic; font-size:26px; font-weight:400; color:{INK}; }}
-  #cardBody .fl span, #cardBody p{{ font-family:'Marmelad', sans-serif; font-size:20px; line-height:27px; color:#3F3A50; }}
-  #cardBody .quiz{{ margin-top:14px; padding:12px 14px 14px; border-radius:16px; border:3px dashed var(--fl); }}
-  #cardBody .quiz h3{{ margin-top:0; }}
-  #cardBody .reveal{{ margin-top:10px; padding:8px 16px; border-radius:999px; background:var(--dk); color:#FFFFFF; font-size:20px; min-height:44px; }}
-  #cardBody .ans{{ margin-top:10px; padding:10px 12px; background:var(--hl); border-radius:12px; }}
-  @media (max-width:640px){{
-    #card{{ right:8px; left:8px; width:auto; top:auto; bottom:8px; transform:none; max-height:70vh; }}
-    #card.show{{ animation:none; }}
-  }}
+  #card{ position:fixed; z-index:6; right:16px; top:50%; transform:translateY(-50%); width:min(420px, calc(100vw - 32px)); max-height:calc(100vh - 32px); overflow:auto;
+    background:#FFFFFF; border-radius:26px; box-shadow:0 14px 40px rgba(70,60,110,.28); border:4px solid var(--fl); }
+  #card.show{ animation: cardIn .35s cubic-bezier(.2,1.3,.4,1); }
+  @keyframes cardIn{ from{ opacity:0; transform:translateY(-50%) scale(.9) } to{ opacity:1; transform:translateY(-50%) scale(1) } }
+  #cardClose{ position:sticky; top:8px; float:right; margin:8px 8px 0 0; width:44px; height:44px; border-radius:50%; background:var(--hl); color:var(--dk); font-size:30px; line-height:44px; }
+  #cardBody{ padding:18px 22px 22px; }
+  #cardBody h2{ font-family:'Pacifico', cursive; font-weight:400; font-size:32px; line-height:46px; color:var(--dk); margin-bottom:6px; }
+  #cardBody h3{ font-family:'Rubik', sans-serif; font-weight:700; font-size:20px; line-height:26px; letter-spacing:.02em; color:var(--dk); margin-top:12px; }
+  #cardBody .fl{ list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+  #cardBody .fl li{ display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; background:var(--hl); border-radius:14px; padding:8px 14px; }
+  #cardBody .fx{ font-family:Georgia, 'Times New Roman', serif; font-style:italic; font-size:26px; font-weight:400; color:#26304A; }
+  #cardBody .fl span, #cardBody p{ font-family:'Marmelad', sans-serif; font-size:20px; line-height:27px; color:#3F3A50; }
+  #cardBody .quiz{ margin-top:14px; padding:12px 14px 14px; border-radius:16px; border:3px dashed var(--fl); }
+  #cardBody .quiz h3{ margin-top:0; }
+  #cardBody .reveal{ margin-top:10px; padding:8px 16px; border-radius:999px; background:var(--dk); color:#FFFFFF; font-size:20px; min-height:44px; }
+  #cardBody .ans{ margin-top:10px; padding:10px 12px; background:var(--hl); border-radius:12px; }
+  @media (max-width:640px){
+    #card{ right:8px; left:8px; width:auto; top:auto; bottom:8px; transform:none; max-height:70vh; }
+    #card.show{ animation:none; }
+  }
 
 
-  @media (prefers-reduced-motion: reduce){ #world.anim{ transition:none; } #map *, #card{ animation:none !important; } }
+  /* ── кнопка СТАРТ ── */
+  #startBtn{ position:absolute; left:875px; top:1208px; width:200px; height:72px; z-index:5; display:flex; align-items:center; justify-content:center; gap:12px;
+    font-family:'Pacifico', cursive; font-size:36px; line-height:1; color:#FFFFFF; letter-spacing:.02em;
+    background:linear-gradient(180deg,#5BC26A 0%,#2F9A48 100%); border:4px solid #FFFFFF; border-radius:999px;
+    box-shadow:0 5px 0 #1F6E33, 0 12px 22px rgba(38,48,74,.35); text-shadow:0 2px 0 rgba(31,110,51,.7);
+    cursor:pointer; animation:startPulse 2s ease-in-out infinite; transition:transform .15s; }
+  #startBtn:hover{ transform:translateY(-3px) scale(1.04); }
+  #startBtn:active{ transform:translateY(2px); box-shadow:0 2px 0 #1F6E33, 0 6px 12px rgba(38,48,74,.3); }
+  #startBtn .play{ width:0; height:0; border-left:22px solid #FFFFFF; border-top:13px solid transparent; border-bottom:13px solid transparent; margin-top:2px; filter:drop-shadow(0 2px 0 rgba(31,110,51,.7)); }
+  #startBtn .st{ padding-bottom:6px; }
+  @keyframes startPulse{ 0%,100%{ box-shadow:0 5px 0 #1F6E33, 0 12px 22px rgba(38,48,74,.35), 0 0 0 0 rgba(91,194,106,.55) } 50%{ box-shadow:0 5px 0 #1F6E33, 0 12px 22px rgba(38,48,74,.35), 0 0 0 16px rgba(91,194,106,0) } }
+
+  @media (prefers-reduced-motion: reduce){ #world.anim{ transition:none; } #map *, #card, #startBtn{ animation:none !important; } }
 </style>
 </head>
 <body>
@@ -127,6 +139,7 @@
 <div style="position: absolute; left: 1314px; width: 560px; justify-content: flex-start; top: 209px; height: 52px; display: flex; align-items: center; white-space: nowrap"><button class="topic sign sr" data-topic="12" style="--hl: #C3E3F4; --hd: #8CC9E8; --dk: #23608A"><span class="tt">Плавлення і кристалізація</span></button></div>
 <div style="position: absolute; left: 1314px; width: 560px; justify-content: flex-start; top: 269px; height: 52px; display: flex; align-items: center; white-space: nowrap"><button class="topic sign sr" data-topic="13" style="--hl: #C3E3F4; --hd: #8CC9E8; --dk: #23608A"><span class="tt">Питома теплота плавлення</span></button></div>
 <svg aria-hidden="true" width="1900" height="1300" viewBox="0 0 1900 1300" style="position: absolute; left: 0; top: 0; width: 1900px; height: 1300px; overflow: hidden; pointer-events: none"><defs><filter id="pp" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#3D4D7A" flood-opacity="0.35"/></filter></defs><circle class="flake" style="animation-duration: 23.5s; animation-delay: -3.0s" cx="464" cy="0" r="3.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 13.0s; animation-delay: -5.9s" cx="1443" cy="0" r="2.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 16.8s; animation-delay: -0.7s" cx="1037" cy="0" r="3" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 16.7s; animation-delay: -13.8s" cx="998" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 13.1s; animation-delay: -5.6s" cx="1837" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 18.2s; animation-delay: -11.4s" cx="40" cy="0" r="3.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 20.7s; animation-delay: -15.9s" cx="1866" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 16.6s; animation-delay: -19.9s" cx="198" cy="0" r="2.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 16.1s; animation-delay: -16.6s" cx="220" cy="0" r="2.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 22.8s; animation-delay: -14.0s" cx="1019" cy="0" r="5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 12.8s; animation-delay: -22.7s" cx="291" cy="0" r="5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 13.8s; animation-delay: -20.6s" cx="1000" cy="0" r="3" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 22.6s; animation-delay: -6.9s" cx="934" cy="0" r="5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 13.6s; animation-delay: -18.3s" cx="730" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 20.3s; animation-delay: -16.9s" cx="199" cy="0" r="5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 18.0s; animation-delay: -4.7s" cx="1318" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 18.3s; animation-delay: -12.2s" cx="307" cy="0" r="3.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 23.0s; animation-delay: -13.1s" cx="146" cy="0" r="5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 22.9s; animation-delay: -7.1s" cx="704" cy="0" r="3" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 12.4s; animation-delay: -6.1s" cx="450" cy="0" r="3.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 14.1s; animation-delay: -9.5s" cx="611" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 14.4s; animation-delay: -18.4s" cx="340" cy="0" r="2.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 12.2s; animation-delay: -18.3s" cx="614" cy="0" r="2.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 18.8s; animation-delay: -21.7s" cx="700" cy="0" r="3" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 18.8s; animation-delay: -9.8s" cx="284" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 12.8s; animation-delay: -17.2s" cx="164" cy="0" r="5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 20.0s; animation-delay: -18.3s" cx="69" cy="0" r="2.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 13.8s; animation-delay: -22.5s" cx="1079" cy="0" r="3.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 23.8s; animation-delay: -1.5s" cx="999" cy="0" r="3" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 16.1s; animation-delay: -15.8s" cx="34" cy="0" r="3" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 16.2s; animation-delay: -23.2s" cx="247" cy="0" r="3.5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 14.5s; animation-delay: -21.0s" cx="6" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 14.1s; animation-delay: -8.1s" cx="67" cy="0" r="5" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><circle class="flake" style="animation-duration: 13.5s; animation-delay: -4.8s" cx="882" cy="0" r="4" fill="#FFFFFF" stroke="#C3CEE6" stroke-width="1.2"/><g class="soar"><path d="M 0 0 Q 18 -16 36 -4 Q 46 -10 52 -2 Q 62 -12 76 -6 Q 92 -18 110 -2 Q 90 -6 76 4 Q 62 10 52 4 Q 40 12 30 4 Q 16 -4 0 0 Z" fill="#6B5A70" transform="translate(640 210) scale(.8)"/></g></svg>
+<button type="button" id="startBtn" data-start="1" aria-label="Старт: перейти до уроку"><span class="play" aria-hidden="true"></span><span class="st">Старт</span></button>
 </div>
     </div>
   </div>
@@ -269,6 +282,8 @@
     13: ''   /* Питома теплота плавлення */
   };
 
+  var LESSON_URL = 'misiia_podolannia_osvitnikh_vtrat_fixed.html';  /* урок, на який веде кнопка «Старт» */
+
   var DATA = {"themes": [{"name": "Робота і потужність", "dark": "#5B3F9A", "fill": "#B5A3E6", "light": "#DCD2F5", "f": [["A = F·s", "механічна робота"], ["N = A / t", "потужність"]], "u": "Дж (джоуль), Вт (ват); 1 кВт = 1000 Вт", "q": "Двоє лижників однакової маси піднялися на ту саму гору: один за 10 хв, інший за 20 хв. Хто виконав більшу роботу? У кого більша потужність?", "a": "Роботу вони виконали однакову: маса й висота ті самі. Потужність більша в того, хто піднявся швидше, тобто за 10 хв."}, {"name": "Механічна енергія", "dark": "#1D6A60", "fill": "#7FD1C4", "light": "#BDE8E0", "f": [["Eп = mgh", "потенційна енергія"], ["Eк = mv²/2", "кінетична енергія"], ["Eп + Eк = const", "якщо немає тертя"]], "u": "Дж (джоуль)", "q": "Санчата з'їжджають із гірки. Яка енергія перетворюється на яку?", "a": "Потенційна енергія санчат зменшується, а кінетична збільшується. Частина енергії йде на подолання тертя об сніг."}, {"name": "Прості механізми", "dark": "#2F6B2A", "fill": "#9BD39A", "light": "#C9E9C6", "f": [["M = F·d", "момент сили"], ["F₁d₁ = F₂d₂", "рівновага важеля"], ["η = Aкор / Aповн · 100%", "ККД"]], "u": "Н·м; рухомий блок дає виграш у силі у 2 рази", "q": "Чому дверна ручка розміщена якомога далі від завіс?", "a": "Що більше плече сили, то меншу силу треба прикласти, щоб створити той самий момент сили й відчинити двері."}, {"name": "Теплопередача", "dark": "#A24A1F", "fill": "#F6A97A", "light": "#FAD0B5", "f": [["T = t + 273", "температура за шкалою Кельвіна"]], "u": "°C, К. Види теплопередачі: теплопровідність, конвекція, випромінювання", "q": "Чому взимку металева гойдалка на дотик холодніша за дерев'яну, хоча температура в них однакова?", "a": "Метал добре проводить тепло й швидко забирає його від руки. Дерево проводить тепло погано, тому здається теплішим."}, {"name": "Кількість теплоти", "dark": "#A3283D", "fill": "#F28B9B", "light": "#F8C0C9", "f": [["Q = cm(t₂ − t₁)", "нагрівання й охолодження"], ["Qвідд = Qотр", "рівняння теплового балансу"]], "u": "Дж; питома теплоємність c — Дж/(кг·°C)", "q": "Що нагріється швидше на однаковому вогні: 1 кг води чи 1 кг олії?", "a": "Олія. Її питома теплоємність менша, ніж у води, тож для нагрівання на ті самі градуси їй потрібно менше теплоти."}, {"name": "Агрегатні стани", "dark": "#23608A", "fill": "#8CC9E8", "light": "#C3E3F4", "f": [["Q = λm", "плавлення і кристалізація"]], "u": "Дж; питома теплота плавлення λ — Дж/кг; лід плавиться при 0 °C", "q": "Чому температура суміші снігу й води не підвищується, доки весь сніг не розтане?", "a": "Уся теплота, яку отримує суміш, іде на плавлення снігу, а не на нагрівання. Тому температура тримається 0 °C."}], "total": 14};
   var vp = document.getElementById('viewport');
   Array.prototype.forEach.call(document.querySelectorAll('.topic'), function(b){
@@ -299,6 +314,7 @@
 
   function activate(el){
     if (!el || !el.closest) return;
+    if (el.closest('[data-start]')) { window.open(LESSON_URL, '_blank', 'noopener'); return; }
     var tp = el.closest('[data-topic]');
     if (tp) { var url = LINKS[tp.dataset.topic]; if (url) window.open(url, '_blank', 'noopener'); return; }
     var th = el.closest('[data-theme]');
@@ -308,7 +324,7 @@
 
   var downT = null, sx = 0, sy = 0, ptrs = 0;
   vp.addEventListener('pointerdown', function(e){ ptrs++; if (ptrs > 1) { downT = null; return; } downT = e.target; sx = e.clientX; sy = e.clientY; }, true);
-  function up(e){ ptrs = Math.max(0, ptrs - 1); window.__uiTap = !!(downT && downT.closest && downT.closest('.has-link,[data-theme]')); if (!downT) return;
+  function up(e){ ptrs = Math.max(0, ptrs - 1); window.__uiTap = !!(downT && downT.closest && downT.closest('.has-link,[data-theme],[data-start]')); if (!downT) return;
     if (e.type === 'pointerup' && Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy) < 8) activate(downT);
     downT = null; }
   vp.addEventListener('pointerup', up, true);
